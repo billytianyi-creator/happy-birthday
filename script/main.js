@@ -304,3 +304,11 @@ const animationTimeline = () => {
 
 // Run fetch and animation in sequence
 fetchData();
+
+// Enable music play on first user interaction (for Chrome autoplay policy)
+document.addEventListener('click', function () {
+    const bgm = document.getElementById('bgm');
+    if (bgm) {
+        bgm.play().catch(e => console.log("Audio play blocked:", e));
+    }
+});
